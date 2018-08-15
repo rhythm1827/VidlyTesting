@@ -242,9 +242,18 @@
     <Compile Include="Migrations\201808151158024_AddBirthDateColumnV2.Designer.cs">
       <DependentUpon>201808151158024_AddBirthDateColumnV2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808151228013_AddMovie.cs" />
+    <Compile Include="Migrations\201808151228013_AddMovie.Designer.cs">
+      <DependentUpon>201808151228013_AddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151229016_PopulateGenre.cs" />
+    <Compile Include="Migrations\201808151229016_PopulateGenre.Designer.cs">
+      <DependentUpon>201808151229016_PopulateGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -316,6 +325,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -363,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808151158024_AddBirthDateColumnV2.resx">
       <DependentUpon>201808151158024_AddBirthDateColumnV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151228013_AddMovie.resx">
+      <DependentUpon>201808151228013_AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151229016_PopulateGenre.resx">
+      <DependentUpon>201808151229016_PopulateGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
