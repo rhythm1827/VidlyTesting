@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - VidlyV6</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -14,7 +14,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - VidlyV6</p>
+            <p>@DateTime.Now.ToShortTimeString() | @DateTime.Now.ToLongDateString() | Dhaka, Bangladesh</p>
+            <p>&copy; VidlyV6</p>
         </footer>
     </div>
 

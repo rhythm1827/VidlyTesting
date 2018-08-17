@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VidlyV6.Models;
+using VidlyV6.ViewModels;
 
 namespace VidlyV6.Controllers
 {
@@ -21,7 +23,43 @@ namespace VidlyV6.Controllers
         {
             _context.Dispose();
         }
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View("CustomerForm",viewModel);
+        }
 
+        public ActionResult Save(Customer customer)
+        {
+            if(customer.Id==0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                //TryUpdateModel(customerInDb);//1problem
+                //Mapper.Map(customer, customerInDb);//2problem
+                customerInDb.Name = customer.Name;
+                customerInDb.DateOfBirth = customer.DateOfBirth;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                //customerInDb.MembershipType = customer.MembershipType;
+            }
+            //_context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+            }
+            
+            return RedirectToAction("Index", "Customers");
+        }
         // GET: Customers
         public ViewResult Index()
         {
@@ -51,5 +89,17 @@ namespace VidlyV6.Controllers
 //                new Customer { Id = cnt++, Name = "Rbjhb Williams" }
 //            };
 //        }
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+                return HttpNotFound();
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", viewModel);
+        }
     }
 }
