@@ -254,6 +254,10 @@
     <Compile Include="Migrations\201808171711403_debugging1.Designer.cs">
       <DependentUpon>201808171711403_debugging1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808191733525_FormCreation.cs" />
+    <Compile Include="Migrations\201808191733525_FormCreation.Designer.cs">
+      <DependentUpon>201808191733525_FormCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -392,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171711403_debugging1.resx">
       <DependentUpon>201808171711403_debugging1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808191733525_FormCreation.resx">
+      <DependentUpon>201808191733525_FormCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
